@@ -18,30 +18,7 @@ import { State } from '@state/todo-list/todo-list.state';
 })
 export class TodoAppComponent implements OnInit {
 
-  newTodo : String = '';
+  constructor() {}
 
-  todoList$: Observable<any>;
- 
-
-  constructor(private store: Store<State>) {
-    this.todoList$ = store.pipe(select('todoList'));   
-
-  }
-
-  ngOnInit() {
-  }
-
-
-  addTodo(){
-    this.store.dispatch(
-      new AddTodo({name: this.newTodo})
-    );
-  }
-
-  toggleTodo(index: Number) {                        
-    this.store.dispatch(                           
-        new ToggleTodo({ index })     
-    );  
-  }
-
+  ngOnInit() {}
 }
