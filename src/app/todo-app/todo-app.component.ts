@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';  
 
-interface TodoItem{
-  name : String;
-  done : Boolean;
-}
+
+import { AddTodo, ToggleTodo } from '@state/todo-list/todo-list.actions';
+import { State } from '@state/todo-list/todo-list.state'; 
+
+
+
 
 
 
@@ -16,27 +20,28 @@ export class TodoAppComponent implements OnInit {
 
   newTodo : String = '';
 
-  list: Array<TodoItem> = [
-    { name: 'clean room', done: false },             
-    { name: 'make pancakes', done: false },            
-    { name: 'spend 3 hours on reddit', done: true } 
-  ];
+  todoList$: Observable<any>;
+ 
 
-  constructor() { }
+  constructor(private store: Store<State>) {
+    this.todoList$ = store.pipe(select('todoList'));   
+
+  }
 
   ngOnInit() {
   }
 
 
   addTodo(){
-    console.log('this.newTodo',this.newTodo);
+    this.store.dispatch(
+      new AddTodo({name: this.newTodo})
+    );
+  }
 
-    this.list.push({
-      name: this.newTodo,
-      done: false
-    });
-
-    this.newTodo
+  toggleTodo(index: Number) {                        
+    this.store.dispatch(                           
+        new ToggleTodo({ index })     
+    );  
   }
 
 }
