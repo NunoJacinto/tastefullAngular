@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
   count$: Observable<number>;                                     
 
   constructor(private store: Store<State>) {                        
-      this.count$ = store.pipe(select('count'));                 
+      this.count$ = store.pipe(select('count'));  //observable connected to count               
   }
 
   increment(){                                                    
