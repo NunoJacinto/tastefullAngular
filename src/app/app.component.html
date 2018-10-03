@@ -1,24 +1,16 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
 
-  <div class="container">                                                
-    <div class="row">                                                              
-        <div class="col-12">                                      
-            <div class="alert alert-primary">                                       
-                If I'm in a blue 'alert' and centered Bootstrap is well installed! 
-            </div>                                           
-        </div>   
-    </div>                                                                          
-</div>     
 
+
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <a routerLink="/">Home</a>
+        <a routerLink="/about">About</a>
+        <a routerLink="/todo">Todo App</a>
+    </div>
+</nav>
 
 
 
 
-<nav>                         
- <p> <a routerLink="/">Home</a> </p>
- <p> <a routerLink="/about">About</a>  </p>
- <p>  <a routerLink="/todo">Todo App</a> </p>
-</nav>              
-
-<router-outlet></router-outlet>
+    <router-outlet></router-outlet>
