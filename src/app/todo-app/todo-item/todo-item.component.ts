@@ -14,7 +14,7 @@ import { State, TodoItem } from '@state/todo-list/todo-list.state'; // will erro
 export class TodoItemComponent implements OnInit {
 
     todoList$: Observable<any>;
-    index: Number;
+    index: number;
     selectedItem: TodoItem;
 
     constructor(
